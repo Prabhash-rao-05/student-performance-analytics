@@ -1,0 +1,16 @@
+import pandas as pd
+import numpy as np
+df = pd.read_csv("data/students.csv")
+print("Dataset loaded successfully!")
+print("\nFirst 5 records:")
+print(df.head())
+print("\nDataset shape:", df.shape)
+print("\nColumn names:")
+print(df.columns.tolist())
+print("\nMissing values:")
+print(df.isnull().sum())
+print("\nTotal student records:", len(df))
+print("\nUnique student IDs:", df["Student_ID"].nunique())
+marks = df[["Python", "Mathematics", "Statistics"]].to_numpy()
+print("\nMarks array shape:", marks.shape)
+print("All marks between 0 and 100:", np.all((marks >= 0) & (marks <= 100)))
